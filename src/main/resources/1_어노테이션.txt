@@ -1,0 +1,72 @@
+[@ : 어노테이션]
+	1. 정의 : java 및 라이브러리(프레임워크)에서 코드에 메타데이터를 추가하는 문법
+	2. 목적 : 메타데이터 제공, 코드 간소화, 가독성 향상
+	3. 메타데이터
+		1. 정의 : 코드를 설명하는 데이터
+		2. 목적 : 자바 코드에 추가적인 데이터를 주입/추가할때 사용된다.
+		3. 동작 방식
+			1. 컴파일(실행) : 프로그램이 처음으로 실행 할때 클래스들을 읽어(번역)오는 방식
+			2. 리플렉션 : 런타임(실행 중) 클래스를 읽어와서 동적으로 메모리(JVM)에 적재하여 객체를 생성
+				- Class.forName("com.mysql.cj.jdbc.Driver"); : Driver클래스를 읽어드리고 인스턴스를 생성
+				- 컴파일 시점이 아닌 실행중(Runtime)에 클래스 정보를 가져오고 인스턴스를 (자동)으로 생성하는 방식
+	4. 사용법
+		- 코드 위에 @적어 아래 코드를 사용하는 방법을 스티커/설명서/태그/라벨처럼 사용하라는 뜻
+		- 스티커 : 라이브러리 회사들이 만들어준다.
+		- 예시
+			@Getter
+			class 클래스명 {}
+
+	5. 어노테이션 종류
+		1. 표준 어노테이션 : Java에서 기본적으로 제공하는 어노테이션
+			- @Override : 부모 클래스의 메소드를 오버라이딩(재정의)할때 사용되는 어노테이션 (생략 가능 --> 이클립스 제공)
+			- @Deprecated : 더 이상 사용하지 않는 코드를 설명할 때 사용되는 어노테이션
+
+		2. 메타 어노테이션 : 어노테이션 자체에 코드를 정의하거나 동작을 제어할 때 사용되는 어노테이션 / 주로 라이브러리
+			- 각 라이브러리 회사마다 너무 다양해서 적을 수 없다.
+			- 서블릿 어노테이션
+			    @WebServlet("/board")
+			- 웹 소켓 어노테이션
+			    @ServerEndpoint("/socket")
+			    @OnOpen, @OnClose, @onMessage, @OnError
+			- 롬복 어노테이션
+			    @Getter, @Setter, @ToString
+			- 스프링 어노테이션
+
+[@ : 메타 어노테이션 만들기]
+    - 인터페이스로 정의된 타입
+    - 목적 : 다형성, 리플렉션(동적처리), 유지보수 향상
+    - 만들기
+        - 인터페이스 키워드 앞에 @ 붙인다
+            @Retention() : 어노테이션 생성추가(유지기간)을 설정
+                @Retention(RetentionPolicy.SOURCE) : 컴파일 후 삭제됨( EX] Override)
+                @Retention(RetentionPolicy.CLASS) : .class 파일에 포함. 실행 중에는 사용 안함
+                @Retention(RetentionPolicy.RUNTIME) : 실행 중 리플렉션을 통해 사용
+            @Target() : 어노테이션을 적용할 수 있는 위치(대상) 설정
+                @Target(ElementType.TYPE) : 클래스, 인터페이스, 열거형 타입에서 사용
+                @Target(ElementType.FIELD) : 멤버변수에서 사용
+                @Target(ElementType.METHOD) : 메소드에서 사용
+                @Target(ElementType.PARAMETER) : 메소드 매개변수에서 사용
+                @Target(ElementType.CONSTRUCTOR) : 생성자에서 사용
+                @Target(ElementType.LOCAL_VARIABLE) : 지역변수에서 사용
+            @interface 인터페이스명{}
+        - 추상메소드를 만든다.
+            추상메소드 : 메소드의 구현부는 없고 선언부만 선언하는 메소드
+            String value1();
+        - 선언한 어노테이션을 사용하여 코드 위에 @어노테이션명
+            @Anotation1()
+            public void method3() {}
+        - ()안에 속성값을 대입할 수 있다.
+            @Anotation1(value1 = "value1 값 저장")
+            public void method3() {}
+    - 어노테이션을 주입받은 코드에서는 어노테이션 코드들을 사용할 수 있다.
+        * 미리 만들어진 코드를 주입/물려받는 개념
+        - 상속 : 컴파일 2. 어노테이션 : 리플렉션(동적처리)
+    - 동적처리 : 실행 중에 어노테이션 기능들이 주입된다.
+    - 리플렉션 클래스/인스턴스 정보 확인
+        try{
+            Method method = 확인할클래스명.class.getMethod("확인할메소드");
+            확인할어노테이션명 변수명 = method.getAnnotation(확인할 어노테이션명.class);
+            System.out.println(변수명.확인할메소드명());
+        } catch(Exception e) {
+            System.out.println(e);
+        }
