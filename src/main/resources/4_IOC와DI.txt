@@ -1,0 +1,29 @@
+[IOC] : (Inversion of Control) 제어의 역전
+    01. 정의 : 객체의 생성(new) 및 관리의 제어권을 개발자가 아닌 스프링의 프레임워크가 담당한다.
+    02. 스프링에서는 컨테이너가 대신 제어한다.
+        - 객체의 생성과 관리를 제어
+    03. 스프링 컨테이너에 등록하는 방법 : 클래스 위에 빈 등록 어노테이션을 사용한다.
+        - @Component
+        - @Controller @RestController @Service @Repository @Mapper 등등 : 다른 기능들과 포함하여 제공한다.
+
+[DI] : (Dependency Injection) 의존성 주입
+    01. 객체를 직접 생성하지 않고 외부(스프링 컨테이너)로부터 주입받도록 하는 방법
+    02. 객체들간의 결합도를 낮추고 유지보수성을 향상한다.
+    03. 방법
+        - @Autowired
+            - 필드(멤버변수)에 주입
+                @Autowired
+                public 클래스명 변수명;
+
+            - 생성자에 주입 *권장*
+                final 클래스명 변수명;
+                @Autowired
+                public 클래스명 (클래스명 매개변수명) { this.변수명 = 매개변수명; }
+
+            - Setter를 이용한 주입
+                클래스명 변수명;
+                @Autowired
+                public void setXXX(클래스명 매개변수명) { this.변수명 = 매개변수명; }
+
+[정리]
+    - 스프링은 IOC를 이용하여 객체를 대신 생성과 관리를 하고 DI를 이용하여 객체를 주입한다.

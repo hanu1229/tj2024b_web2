@@ -1,0 +1,46 @@
+[스프링 과제3]
+day02 -> _3과제 폴더에서 진행
+
+주제 : 게시판 RestController 만들기
+    1. AppStart(과제2에 이어서 사용) 클래스 생성
+    2. BoardController2 클래스 생성
+    3. BoardDto 클래스 생성(롬북 사용)(과제2에 이어서 사용)
+    4. BoardDao 클래스 생성(싱글톤 금지)
+    5. BoardDao 클래스에 해서 List<BoardDto> 멤버변수를 선언한다. + bno는 list add를 할때 마다 자동으로 증가하도록 설계
+    5. 각 URL 매핑 만들기, REST 명세서
+        1. 글쓰기
+            POST    "/day02/task2/board"
+            요청자료 : {"title" : "", "content" : ""}
+            응답자료 : true/false
+
+        2. 전체 글 조회
+            GET     "/day02/task2/board"
+            요청자료 : X
+            응답자료 : [ {bno : "", title : "", "content" : ""}, {"bno" : "", "title": "", "content" : ""}]
+
+        3. 개별 글 조회
+            GET     "/day02/task2/board/view"
+            요청자료 : URL?bno=1
+            응답자료 : {"bno" : "", "title" : "", "content" : ""}
+
+        4. 개별 글 수정
+            PUT     "/day02/task2/board"
+            요청자료 : {"bno" : "", "title" : "", "content" : ""}
+            응답자료 : true/false
+
+        5. 개별 글 삭제
+            DELETE  "/day02/task2/board"
+            요청자료 : URL?bno=1
+            응답자료 : true/false
+
+제출 : 카카오톡방에 ip 제출
+
+    1. 글쓰기
+        - 저장할 데이터들을 매개변수(DTO)로 받는다
+        - 리스트(DB)에 저장한다
+        - 응답한다
+
+    2. 전체 글 조회
+    3. 개별 글 조회
+    4. 개별 글 수정
+    5. 개별 글 삭제
