@@ -1,0 +1,51 @@
+[REST]
+    01. 웹의 자원을 관리하는 아키텍처(설계 구조)
+    02. 자원(Resources)이나 행동(Method)을 표현한 개념
+    03. HTTP 프로토콜을 이용하여 클라이언트(유저) <---> 서버(톰캣)간의 통신을 일관성 있게 구성한 것
+
+[REST API]
+    01. REST 아키텍처에 따른 API
+    02. REST기반의 웹서비스 인터페이스 구축
+    03. HTTP 요청을 통해 자원을 CRUD를 할 수 있도록 제공
+
+[RESTful API]
+    01. REST API의 아키텍처를 잘 사용하는지에 대한 개념(확인)
+    02. 조건
+        02-01. 일관된 URI : /board, /member
+        02-02. 적절한 HTTP 메소드를 사용 : GET, POST, PUT, DELETE
+        02-03. 소켓과는 다르게 무상태성을 유지(요청이 와야지만 응답할 수 있음)
+        03-04. 응답 데이터는 주로 JSON/ XML을 제공
+
+[REST 관련 주요 어노테이션] : Spring Web에서는 REST관련 어노테이션을 지원
+    01. @Controller : 주로 동적 페이지(HTML/JSP) 반환
+        - HTTP 요청/응답을 처리(주로 HTML 반환)
+
+    02. @RestController : 주로 자원(Resources/JSON/값)을 반환
+        - HTTP 요청/응답을 처리(HTML + @ResponseBody포함, 주로 JSON반환)
+
+    03. @RequestMapping : 주로 공통 URL 작성
+        - HTTP 요청에 필요한 URL을 매핑(주로 공통 URL을 정의할때 사용)
+
+    04. @PostMapping : 주로 특정(세부)URL 작성
+        - HTTP POST 요청을 매핑(Create, 생성, insert)
+
+    05. @GetMapping : 주로 특정(세부)URL 작성
+        - HTTP GET 요청을 매핑(Read, 조회, select)
+
+    06. @PutMapping : 주로 특정(세부)URL 작성
+        - HTTP PUT 요청을 매핑(Update, 수정, update)
+
+    07. @DeleteMapping : 주로 특정(세부)URL 작성
+        - HTTP DELETE 요청을 매핑(Delete, 삭제, delete)
+
+    08. @ResponseBody
+        - HTTP 응답을 JSON으로 자동 변환하여 응답, RestController에 포함되므로 생략이 가능
+
+    09. @RequestParam : 주로 QueryString에서 사용
+        - HTTP QueryString 또는 form-Data에서 기본타입 + 공식타입(List, Map, String...)값을 매핑
+
+    10. @RequestBody : 주로 body에서 사용
+        - HTTP Body(본문)의 'application/json'을 자바객체의 값으로 매핑
+
+    11. @ModelAttribute : 주로 form-Data에서 사용
+        - HTTP 요청 매핑의 기본 어노체이션으로 생략 가능, QueryString에서 사용
