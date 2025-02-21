@@ -1,0 +1,70 @@
+[MVC 패턴]
+    01. 정의 : 소프트웨어공학에서 사용하는 디자인 패턴 중 하나
+    02. 목적 : 프로그램을 깜끔하고 효율적으로 만들기 위해 사용되는 설계 방법
+    03. 종류
+        03-1. MVC1          : Controller(제어) + View(화면)
+            --> JSP파일에서 화면(HTML)과 제어(로직)을 한번에 작성하는 방법
+            - View/Controller <----모델(DTO)----> DAO <----> SQL
+            - 장점 : 빠른 개발
+            - 단점 : 유지보수와 역할분담이 어려움
+
+        03-2. MVC2          : Controller(Servlet)과 View(화면)을 분리 ( node.js 출시 2010년 이후부터 사용이 많아짐)
+            --> JSP 파일에서는 단순 HTML만 구현, Servlet에서 제어(로직)을 작성하는 방법
+            - View(JSP/JS) <----모델(DTO)----> Controller(Servlet) <----모델(DTO)----> DAO <----> SQL
+            - 장점 : 로직과 화면 분리
+            - 단점 : 파일의 수가 많아짐
+
+        03-3. MVC2 3Tire    : Controller 과 Service와 DAO/Repository와 View(화면)을 분리
+            --> Controller의 역할을 조금 더 세분화해서 분리(Service)(Spring 프레임워크 / 대규모 프로젝트)
+            - View(React) <----
+            - 장점 : 유지보수와 확장성에 뛰어남
+            - 단점 : 파일관리 복잡도 상승
+            ※ 유효성 검사는 어디에서나 다 해야한다(JS, Controller, Service, Dao, ...)
+            - View
+                - JSP : 스프링 공식 지원 X
+                - Thymeleaf
+                - mustache : 스프링 공식 템플릿
+                - React : 현재 트렌드
+
+            - Controller(Spring) : @RestController / @Controller
+                - 클라이언트(사용자)와 통신을 담당(HTTP)
+
+            - Service(Spring) : @Service / @Component
+                - 비지니스 로직을 담당
+                    - CRUD
+                    - 데이터 검증
+                    - 연산
+                    - 알고리즘, 자료구조
+                    - 트랜젝션
+
+            - Dao/Repository(Spring) : @Repository
+                - 데이터베이스와 연동하여 SQL을 처리를 담당
+        ※ JVM, Tomcat, Spring 아키텍처 공부하기
+    04. 스프링 프레임워크에서 공식적인 MVC패턴을 지원
+        04-1. View : 프로젝트 내 src -> main -> resources 폴더 내 모든 파일들을 자동으로 view로 인식
+            resources 폴더
+                - static    폴더 : 스프링은 정적 파일들을 자동으로 static에서 찾음
+                    - html / css / JS / Image / etc...
+                - templetes 폴더 : 스프링은 동적 파일들을 자동으로 templates에서 찾아 렌더링(html로 변환)하여 반환
+                    - JSP / Thymeleaf / Mustache / React.js / vue.js / etc...
+
+        04-2. Controller : 스프링은 시작과 동시에 @RestController과 @Controller가 작성된(주입된) 클래스들을 스캔(찾아서) 컨테이너에 Bean 등록
+        04-3. Service : 스프링은 시작과 동시에 @Service가 작성된(주입된) 클래스들을 스캔(찾아서) 컨테이너에 등록
+        04-4. Dao/Repository : 스프링은 시작과 동시에 @Respository가 작성된(주입된) 클래스들을 스캔(찾아서) 컨테이너에 등록
+
+    * 실무/대기업 : 프로젝트의 복잡도가 높다. (코드 의지 뿜뿜 : 신입[파견 SI], 공공기간, 대기업 / 코드 천천히, 단계적 : 스타트업)
+    05. 패키지 구조
+        - 프로젝트명
+            - src
+                - main
+                    - java
+                        - 패키지명(무조건 1개이상) / 주로 홈페이지명을 작성 예시) https://www.tjoeun.com/ --> com.tjoeun
+                            - AppStart 클래스 : 클래스명은 아무거나 작성(관례적으로 AppState 클래스명을 사용)
+                            - service 패키지
+                            - model 패키지
+                                - dao 패키지
+                                - vo 패키지( value object : 수정 불가능한 객체)
+                                - entity 패키지 (DB 매핑 객체)
+                                - repository/dao 패키지 (DB 매핑 인터페이스)
+                            - controller 패키지
+                            - config 패키지
