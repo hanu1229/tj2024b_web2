@@ -49,3 +49,13 @@
 
     11. @ModelAttribute : 주로 form-Data에서 사용
         - HTTP 요청 매핑의 기본 어노체이션으로 생략 가능, QueryString에서 사용
+
+    12. @Component
+
+    13. @Service :
+        - MVC2 3tire패턴의 Service(비즈니스로직)을 담당
+
+    14. @Mapper :
+        - Mybatis 환경에서 xml 혹은 어노테이션의 SQL 매핑을 담당
+
+    15. @Autowired
