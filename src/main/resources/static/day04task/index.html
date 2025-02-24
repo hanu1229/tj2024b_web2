@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <title>게시판</title>
+  </head>
+  <body>
+    <h1>게시판</h1>
+    <div>
+        제목 : <input id="title-input" placeholder="제목..." type="text"/>
+        <br/>
+        내용 : <input id="content-input" placeholder="내용..." type="text"/>
+        <br/>
+        <button type="button" onclick="_write()">등록</button>
+    </div>
+    <hr/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>비고</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <!-- Axios.js -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
