@@ -28,7 +28,7 @@ let _findAll = async () => {
             html += `
             <tr>
                 <td>
-                    <a onclick="_find(${board.bno})">${board.bno}</a>
+                    <a style="cursor : pointer;" onclick="_find(${board.bno})">${board.bno}</a>
                 </td>
                 <td>${board.title}</td>
                 <td>${board.content}</td>
@@ -50,7 +50,7 @@ _findAll();
 /** [3] 개별 글 조회 */
 let _find = async (bno) => {
     try {
-        let response = await axios.get(`day04/task/board/biew?bno=${bno}`);
+        let response = await axios.get(`/day04/task/board/view?bno=${bno}`);
         if(response.data != null) {
             alert(`제목 : ${response.data.title} \n내용 : ${response.data.content}`);
         }
