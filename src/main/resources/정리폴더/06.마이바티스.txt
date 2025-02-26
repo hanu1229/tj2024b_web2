@@ -73,6 +73,18 @@
             - @Update("SQL문")
             - @Delete("SQL문")
 
+            ※ @XXX("SQL문 #{}")
+                - #{매개변수명} : sql에 대입할 값이 들어간다
+                - 자동 리턴 값
+                    - int : sql이 실행 후 처리된 레코드 수를 반환
+                    - boolean : sql이 정상적으로 실행됬다면 true 아니면 false를 반환
+                    - Map<Object, Object> : sql이 조회한 레코드 1개를 map객체로 반환
+                    - XXXDTO : sql이 조회한 레코드 1개를 dto객체로 반환
+                    - List<XXXDTO> : sql이 조회한 여러개의 레코드를 List<DTO객체>로 반환
+                ※ @Options(useGeneratedKeys = true, keyProperty = "PK필드명")
+                    - sql에서 생성된 pk값을 반환하는 어노테이션
+                    - keyProperty = "대입할 PK 필드명" : 매개변수에 지정한 필드명에 생성된 pk값을 저장
+
         - 스프링에서 실행될때 DML과 DDL 파일들을 읽어드리는 기능을 제공
             - resource 폴더 아래에
                 - schema.sql 파일 : DDL[create, drop, alter 등등] SQL문 작성
