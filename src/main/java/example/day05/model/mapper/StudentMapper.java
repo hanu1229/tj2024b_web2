@@ -37,7 +37,7 @@ public interface StudentMapper {
                 <if test = 'minKor != null'>
                     and kor >= #{minKor}
                 </if>
-                <if test = 'minMath' != null'>
+                <if test = 'minMath != null'>
                     and math >= #{minMath}
                 </if>
             </script>
@@ -58,5 +58,19 @@ public interface StudentMapper {
     /** [4] 삭제 */
     @Delete("delete from student where sno = #{sno}")
     boolean delete(int sno);
+
+    /** [5] 여러명 등록 */
+    @Insert(
+    """
+    <script>
+        insert into student(name, kor, math) values 
+        <foreach collection='list' item='student' separator=','>
+             (#{student.name}, #{student.kor}, #{student.math})
+        </foreach>
+    </script>
+    """
+    // <foreach collection="반복할리스트매개변수명" item="반복할변수명" separator="반복사이에넣을문자"></foreach>
+    )
+    boolean saveAll(List<Map<String, Object>> list);
     
 }

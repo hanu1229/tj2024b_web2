@@ -3,6 +3,7 @@ package example.day05.service;
 import example.day05.model.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -58,6 +59,14 @@ public class StudentService {
         System.out.println(">> sno = " + sno);
         System.out.println(">> StudentService.delete end\n");
         return studentMapper.delete(sno);
+    }
+
+    /** [5] 여러명 등록 */
+    public boolean saveAll(List<Map<String, Object>> list) {
+        System.out.println(">> StudentService.saveAll start");
+        System.out.println(">> list = " + list);
+        System.out.println(">> StudentService.saveAll end\n");
+        return studentMapper.saveAll(list);
     }
 
 }

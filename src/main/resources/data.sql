@@ -10,6 +10,4 @@ INSERT INTO student_score (sno, subject, score) VALUES (1, '수학', 85);
 INSERT INTO student_score (sno, subject, score) VALUES (2, '국어', 78);
 INSERT INTO student_score (sno, subject, score) VALUES (2, '수학', 92);
 
-select * from student;
-
 -- ---------------------- ------ ---------------------------------- --

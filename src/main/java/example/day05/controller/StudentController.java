@@ -64,4 +64,13 @@ public class StudentController {
         return studentService.delete(sno);
     }
 
+    /** [5] 여러명 등록 */
+    @PostMapping("/save/all")
+    public boolean saveAll(@RequestBody() List<Map<String, Object>> list) {
+        System.out.println(">> StudentController.saveAll start");
+        System.out.println(">> list = " + list);
+        System.out.println(">> StudentController.saveAll end\n");
+        return studentService.saveAll(list);
+    }
+
 }

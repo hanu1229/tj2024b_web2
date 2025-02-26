@@ -1,0 +1,62 @@
+[AppStart클래스] : 서버에 필요한 스프링을 설정하고 서버를 실행하는 클래스 담당
+    01. @SpringBootApplication
+
+[XXXController클래스] : 클라이언트와 (HTTP)통신을 담당
+    01. @Autowired : 스프링 컨테이너에서 관리하는 빈(인스턴스)을 자동으로 주입하는 역할
+
+    02. @Controller : 주로 동적 페이지(HTML/JSP) 반환
+        - HTTP 요청/응답을 처리(주로 HTML 반환)
+
+    03. @RestController : 주로 자원(Resources/JSON/값)을 반환
+        - HTTP 요청/응답을 처리(HTML + @ResponseBody포함, 주로 JSON반환)
+
+    04. @RequestMapping : 주로 공통 URL 작성
+        - HTTP 요청에 필요한 URL을 매핑(주로 공통 URL을 정의할때 사용)
+
+    05. @PostMapping : 주로 특정(세부)URL 작성
+        - HTTP POST 요청을 매핑(Create, 생성, insert)
+
+    06. @GetMapping : 주로 특정(세부)URL 작성
+        - HTTP GET 요청을 매핑(Read, 조회, select)
+
+    07. @PutMapping : 주로 특정(세부)URL 작성
+        - HTTP PUT 요청을 매핑(Update, 수정, update)
+
+    08. @DeleteMapping : 주로 특정(세부)URL 작성
+        - HTTP DELETE 요청을 매핑(Delete, 삭제, delete)
+
+    09. @ResponseBody
+        - HTTP 응답을 JSON으로 자동 변환하여 응답, RestController에 포함되므로 생략이 가능
+
+    10. @RequestParam : 주로 QueryString에서 사용
+        - HTTP QueryString 또는 form-Data에서 기본타입 + 공식타입(List, Map, String...)값을 매핑
+
+    11. @RequestBody : 주로 body에서 사용
+        - HTTP Body(본문)의 'application/json'을 자바객체의 값으로 매핑
+
+    12. @ModelAttribute : 주로 form-Data에서 사용
+        - HTTP 요청 매핑의 기본 어노체이션으로 생략 가능, QueryString에서 사용
+
+[XXXService클래스] : 비지니스 로직담당(CRUD, 데이터검증, 연산, 알고리즘, 트렌잭션 등등) 수행
+    01. @Autowired : 스프링 컨테이너에서 관리하는 빈(인스턴스)을 자동으로 주입하는 역할
+
+    02. @Service :
+        - MVC2 3tire패턴의 Service(비즈니스로직)을 담당
+
+[XXXMapper인터페이스] : 데이터베이스와 연동하여 SQL의 처리를 담당
+    01. @Mapper :
+        - Mybatis 환경에서 xml 혹은 어노테이션의 SQL 매핑을 담당
+
+    02. @Insert : Mybatis 환경에서 insert SQL 삽입
+
+    03. @Select : Mybatis 환경에서 select SQL 삽입
+
+    04. @Update : Mybatis 환경에서 update SQL 삽입
+
+    05. @Delete : Mybatis 환경에서 delete SQL 삽입
+
+    06. @options :  : Mybatis 환경에서 추가 옵션 삽입
+        - 자동 생성된 PK반환 : @options(useGeneratedKeys = true, keyProperty = "pk필드명")
+
+[그 외]
+    01. @Component : 스프링 컨테이너에서 관리하는 빈(인스턴스)으로 등록하는 역할

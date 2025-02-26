@@ -59,3 +59,5 @@
         - Mybatis 환경에서 xml 혹은 어노테이션의 SQL 매핑을 담당
 
     15. @Autowired
+
+    16.
