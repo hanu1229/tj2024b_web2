@@ -107,7 +107,7 @@ const func9 = async () => {
 const func10 = async () => {
     try {
         const response = await fetch("");
-        const data = response.json();
+        const data = await response.json();
     } catch(e) { console.log(e); }
     try {
         const response = await axios.get("");
