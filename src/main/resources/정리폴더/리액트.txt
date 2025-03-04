@@ -1,0 +1,82 @@
+[리액트] React.js / React
+    01. 정의 : 페이스북에서 개발한 자바스크립트 라이브러리
+        -> 현재에는 react.js / vue.js
+        -> 과거에는 jquery, Angular.js
+
+    02. 목적 : 자바스크립트에서 지원하지 않는 효율적이고 편한 UI를 제공받기 위해서 사용
+        -> 프론트엔드 기술은 트랜드에 따라 기술이 빠르게 바뀐다.
+
+    03. 특징
+        03-1. 컴포넌트 기반 : 화면을 작은 단위로 나눠서(모듈화) 재사용할 수 있다.
+        03-2. 가상 DOM : 실제 DOM을 직접 조작하지 않고 가상 DOM을 만들고 진짜 DOM으로 성능을 최적화 한다
+        03-3. 단방향데이터흐름 : 부모 -> 자식 방향으로 구조화한다
+        03-4. 선언적 코드 : HTML을 가상으로 조작하여 JS형식의 코드로 표현이 가능하다
+        03-5. 훅(HOOK) 지원 : 다양한 함수/라이브러리를 지원한다.
+    
+    04. React 버전에 따라 문법의 차이가 크기 때문에 주의해야한다.
+        - 현재 강의는 18.x
+
+    05. 사용처 : 웹(React), 앱(React Native)
+
+    06. React[SPA]
+        SPA : Single Page Application
+            - 주로 CSR
+            - HTML 1개
+            - 클라이언트에서 페이지 전환
+                - 페이지 전환 시 서버와 통신하지 않기 때문에 부드럽다.
+                    - [SSR] : 서버 사이드 렌더링 VS [CSR] : 클라이언트 사이드 렌더링
+                        [SSR] : 서버가 페이지를 전환/반환/생성
+                        [CSR] : 클라이언트가 페이지 전환/반환/생성
+                - 장점 : 페이지 로드 속도가 빠르다. 서버에 요청이 적으므로 성능 부담이 없다.
+                - 단점 : 최초 페이지 로드가 느리다. 검색 최적화(SEO)에 불리하다(검색 : 데이터가 실시간 변화)
+                    -> 단점을 보완하고자 next.js같은 기술을 활용하여 문제 해결이 가능하다.
+        MPA : Multi PAge Application
+            - 주로 SSR
+            - HTML 여러개(JSP)
+            - 서버에서 페이지 전환
+                - 페이지 전환 시 서버와 통신하므로 재로드 한다.
+
+
+[설치]
+    - node.js 설치
+        -> node.js가 나오기전에 자바스크립트는 HTML에 종속되어 html브라우저없이 실행할 수 없었다.
+        -> node.js가 나오면서 크롬(브라우저)엔진을 사용하므로 html에 종속되지 않고 자체적인 자바스크립트를 실행할 수 있다.
+        -> node.js는 웹 브라우저 밖에서 자바스크립트 코드를 실행 가능한 엔진
+        (1) https://nodejs.org/ko, 현재 강의 기준  v22.14.0 LTS
+        (2) "node-v22-14.0-x64.msi" 실행
+        (3) [next] -> (I accpet) 체크 [next] -> (기본폴더) [next] -> [next] -> [next] -> [install]
+        -- 설치 확인
+            cmd
+                - node -v 작성 후 엔터
+                - npm -v 작성 후 엔터
+                - npx -v 작성 후 엔터
+
+    - react.js 설치
+        - react 설치할 폴더 : Spring프로젝트명 -> src -> main 폴더 내 설치
+        - src -> main 폴더 오른쪽 클릭 -> [통합 터미널 열기] 클릭
+        - 'npm create vite@latest 프로젝트명 --template -react'
+            --> npm create vite@latest reactapp --template -react
+            --> OK to proceed?(y) --> y입력 후 엔터
+            --> select a framework : 키보드 방향키를 이용하여 아래 내려가서 리액트 선택 후 엔터
+
+            --> select a variant : 키보드 방향키를 이용하여 내려가서 'JavaScript + SWC' 선택 후 엔터
+
+            --> Done. Now run;
+
+        - 리엑트 실행하기
+            - 리액트프로젝트 폴더명으로 이동하기
+                방법1 : cd 폴더명, cd 이동할 폴더명
+                방법2 : 해당 폴더명 오른쪽 클릭 -> [통합 터미널 열기] 클릭
+            
+            - 패키지(라이브러리)설치 또는 업데이트, 최초로 1번 생성/git Clone 또는 추가된 라이브러리가 있을경우
+                - npm install
+            
+            - 리액트 실행, 리액트서버의 기본 port : 5173
+                npm run dev
+
+    * npm이란
+        - node package manager : node.js기반의 라이브러리(패키지)를 관리해주는 프로그램(그래이들과 비슷)
+        -> node.js기반 외부 라이브러리 찾기 : https://www.npmjs.com/
+        - npm install : package.js내 정의된 라이브러리들을 설치/재로드
+        - npm run dev : 리액트 실행하는 명령어
+        - npm install XXX : 외부라이브러리들(XXX)을 프로젝트에 설치

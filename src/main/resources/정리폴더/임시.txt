@@ -1,0 +1,91 @@
+[1] 변수와 상수
+    const 키워드
+    let 키워드
+    * var 키워드 : let 키워드가 나오기전에 사용했던 변수 선언 키워드, 변수들간의 변수명 중복이 가능하다.
+
+[2] 함수
+    1. 정의
+        function func1(param1, param2) {}
+        const func2 = function(param1, param2) {}
+        const func3 = (param1, param2) => {}
+        const func4 = (param1, param2, param3 = "학생") => {}
+        const func5 = (param1, ... params) => {}
+        const func6 = (parma1, param2 = "학생", ...params) => {}
+    2. 호출
+        - 함수명(인자값, 인자값);
+
+[3] 객체
+    1. {} 객체 : key(속성명)와 value(속성값)으로 한쌍을 구성하여 여러쌍을 {}로 묶음
+        {key : value, key : value, key : value, key : value};
+    2. 속성명(key) 단축 : value의 변수명이 속성명과 동일하게 선언할 때 사용
+        {value, value, value};
+    3. 속성값 호출 : .(접근연산자)를 이용한 객체내 속성값 호출
+        - .속성명
+
+[4] 리스트
+    1. [] 리스트 : [value, value, value, value];
+    2. 리스트내 값 호출
+        변수명[인덱스]
+
+[5] 스프레드 연산자(...)
+    1. 기존배열과 새로운 값으로 새로운 배열을 선언
+        const newArr = [...arr1, value, value];
+    2. 기존객체와 새료운 속성으로 새로운 객체 선언
+        const newObj = {...obj1, key : value};
+
+[6] 구조/비구조 분해 할당 : 배열 또는 객체를 분해해서 각 변수에 저장
+    - 배열 또는 객체를 분해해서 각 변수에 저장
+    1. const {key1 : ke2} = {key1 : value1, key2 : value2};
+    2. const {key1, ...keys} = {key1 : value1, key2 : value2, key3 : value3};
+    3. const [value1, ...values] = [value1, value2, value3, value4];
+
+[7] 나머지 연산자(...) : 마지막 위치에 정의해야 한다
+    1. 매개변수를 한번에 받을 때
+        (param1, ...param2)
+
+[8] 백틱 : 문자열 템플릿, 연산자가 이닌 ``안에 ${}를 이용하여 문자열과 표현식을 연결할 때 사용
+    - 선언부 : if/for/while/객체/변수/함수 선언 등 불가능
+    - 표현부 : 1 + 3/ 삼항연산자 / 변수호출 / 함수호출 / 객체 호출 등 가능
+
+[9] 삼항연산자
+    - 조건 ? 참 : 거짓;
+
+[10] 단축 평가(연산)
+    - 조건(A) && 참(B) : 만약에 조건이 True이면 B반환 False이면 A반환
+    - 조건(A) || 거짓(B) : 만약에 조건이 True이면 A반환 False이면 B반환
+
+[11] 동기, 비동기
+    - 비동기
+        const func8 = () => {
+            fetch("").then(response => response.json()).then(data => {}).catch(error => {});
+            axios.get("").then(data => {}).catch(error => {});
+        }   
+    - 동기
+        const func10 = async () => {
+            try {
+                const response = await fetch("");
+                const data = response.json();
+            } catch(e) { console.log(e); }
+            try {
+                const response = await axios.get("");
+                const data = response.data;
+            } catch(e) { console.log(e); }
+        }
+
+[12] for문
+    - const arr9 = [10, 20, 30, 40, 50];
+    - 일반 for문
+        for(let 반복변수명 = 0; 반복변수명 < 배열명.length; 반복변수명++) {
+            console.log(arr9[index]);
+        }
+    - 향상된 for문
+        - 반복변수명 in 배열명
+            for(let 반복변수명 in 배열명) { }
+        - 반복변수명 of 배열명
+            for(let 반복변수명 of 배열명) { }
+    - forEach문
+        arr9.forEach((반복변수명, 인덱스변수명) => { });
+    - map문
+        const 반환될배열명 = 배열명.map((반복변수명, 인덱스변수명) => { return });
+    - filter
+        const 조건반환배열명 = 배열명.filter((반복변수명, 인덱스변수명) => {return 조건식});
