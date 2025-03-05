@@ -20,7 +20,13 @@ const root = createRoot(document.querySelector("#root"))
 // root.render(<Component1 />);
 
 // day01 : 여러컴포넌트 만들기
-import Component2 from './example/1_동작구조/Component2.jsx';
+// import Component2 from './example/1_동작구조/Component2.jsx';
+// root.render(
+//   <Component2 />
+// );
+
+// day02 : 컴포넌트의 JSX활용
+import Example1 from './example/2_컴포넌트/Example1.jsx';
 root.render(
-  <Component2 />
+  <Example1/>
 );
