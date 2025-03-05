@@ -30,8 +30,15 @@ export default function Task( props ) {
             {
                 products.map((item, index) => (
                     <ProductCard key={index}>{item}</ProductCard>
+                    // <Card key={index} temp={item} />
                 ))
             }
         </div>
     );
 }
+
+const Card = ( props ) => {
+    // console.log(props);
+    let list = props.temp;
+    console.log(list);
+};
