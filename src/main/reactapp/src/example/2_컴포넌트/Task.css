@@ -1,0 +1,18 @@
+.content {
+    display : flex;
+}
+
+.card {
+    margin : 0px 5px;
+    width : 200px;
+    border : solid 1px #d9d9d9;
+    border-radius : 10px;
+}
+
+.in-stock {
+    color : green;
+}
+
+.out-stock {
+    color : red;
+}

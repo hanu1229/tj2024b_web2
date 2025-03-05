@@ -26,7 +26,19 @@ const root = createRoot(document.querySelector("#root"))
 // );
 
 // day02 : 컴포넌트의 JSX활용
-import Example1 from './example/2_컴포넌트/Example1.jsx';
+// import Example1 from './example/2_컴포넌트/Example1.jsx';
+// root.render(
+//   <Example1 />
+// );
+
+// day02 : 컴포넌트의 JSX활용
+// import Example2 from './example/2_컴포넌트/Example2.jsx';
+// root.render(
+//   <Example2 />
+// );
+
+// day02 : Task.jsx 실습
+import Task from './example/2_컴포넌트/task.jsx';
 root.render(
-  <Example1/>
+  <Task />
 );
