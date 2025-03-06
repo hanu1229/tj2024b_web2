@@ -21,24 +21,36 @@ const root = createRoot(document.querySelector("#root"))
 
 // day01 : 여러컴포넌트 만들기
 // import Component2 from './example/1_동작구조/Component2.jsx';
-// root.render(
-//   <Component2 />
-// );
+// root.render(<Component2 />);
 
 // day02 : 컴포넌트의 JSX활용
 // import Example1 from './example/2_컴포넌트/Example1.jsx';
-// root.render(
-//   <Example1 />
-// );
+// root.render(<Example1 />);
 
 // day02 : 컴포넌트의 JSX활용
 // import Example2 from './example/2_컴포넌트/Example2.jsx';
-// root.render(
-//   <Example2 />
-// );
+// root.render(<Example2 />);
 
 // day02 : Task.jsx 실습
-import Task from './example/2_컴포넌트/task.jsx';
-root.render(
-  <Task />
-);
+// import Task from './example/2_컴포넌트/task.jsx';
+// root.render(<Task />);
+
+// day03 : 생명주기1
+// import Example1 from './example/3_훅/Example1.jsx';
+// root.render(<Example1 />);
+
+// day03 : 생명주기2
+// import Example2 from './example/3_훅/Example2.jsx';
+// root.render(<Example2 />);
+
+// day03 : 생명주기3
+// import Example3 from './example/3_훅/Example3.jsx';
+// root.render(<Example3 />);
+
+// day03 : 3_훅.Task1.jsx 과제1
+// import Task1 from './example/3_훅/Task1.jsx';
+// root.render(<Task1 />);
+
+// day03 : 3_훅.Task2.jsx 과제3
+import Task2 from './example/3_훅/Task2.jsx';
+root.render(<Task2 />);
