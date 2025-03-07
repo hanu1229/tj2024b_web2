@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+// import App from './App.jsx'
 
 // react 18
 /*
@@ -52,5 +52,15 @@ const root = createRoot(document.querySelector("#root"))
 // root.render(<Task1 />);
 
 // day03 : 3_훅.Task2.jsx 과제3
-import Task2 from './example/3_훅/Task2.jsx';
-root.render(<Task2 />);
+// import Task2 from './example/3_훅/Task2.jsx';
+// root.render(<Task2 />);
+
+// day04 : 4_훅2 useEffect 사용법
+// import Example1 from './example/4_훅2/Example1.jsx';
+// root.render(<Example1 />);
+
+// day04 : 5_라우터 라우터 사용법
+// 맨 위에 존재하는 import App 샘플 코드를 주석 처리
+// 맨 위에 존재하는 import ./index.css를 주석 처리
+import App from './example/5_라우터/Example1.jsx';
+root.render(<App />);

@@ -1,0 +1,66 @@
+[리액트 라우터]
+    01. 리액트는 SPA(Single Page Application, HTML이 1개, HTML 전환 X)
+        - 페이지를 전환하는 것처럼 컴포넌트를 전환/변경을 지원 --> React Router
+
+    02. 리액트는 폴더내 index.html이라는 html이 1개 존재 : HTTP의 url은 1개
+        - 컴포넌트의 HTTP 가상 URL을 만들고 가상 URL을 요청함으로서 컴포넌트를 전환/변경을 지원한다
+
+    03. 정의
+        03-1. SPA방식에서 화면 이동 시 새로고침 없이 컴포넌트 변경을 지원
+
+    04. 설치 / npm(node.js에서 제공하는 외부 라이브러리 설치/관리 프로그램 --> 자바에서의 그래들과 비슷)
+        - 리액트 프로젝트 터미널에서 'npm install react-router-dom'을 입력
+        - 설치 후 서버 재실행
+
+    05. 사용법
+        05-1. 모든 컴포넌트를 연결할 수 있는 (라우터)컴포넌트가 필요
+
+        05-2. 라우터 관련 컴포넌트 import
+
+        05-3. 연결할 컴포넌트들을 <BrowserRouter>로 감싼다
+
+        05-4. 연결할 각 컴포넌트들의 가상 URL을 정의 (<BrowserRouter>안에 작성)
+            <Routes>
+                <Route path="가상URL" element={연결할컴포넌트} />
+                <Route path="가상URL" element={연결할컴포넌트} />
+                <Route path="가상URL" element={연결할컴포넌트} />
+            </Routes>
+        
+        05-5. <a> 대신 <Link>컴포넌트를 이용한 이동 이벤트(컴포넌트 바꿔치기 형식)
+            - 일반 방식 <a href="이동할경로"></a>
+                - HTTP GET방식이 적용되므로 우선순위가 라우터가 아닌 REST가 적용
+            - 라우터 방식 <Link to="이동할경로"></Link>
+                - HTTP GET방식이 아닌 리액트 라우터가 적용
+
+        05-06. 라우터를 이용한 컴포넌트에게 매개변수 전달
+            - 일반 방식 <a href="이동할경로?변수명=값&변수명=값"></a>   : 쿼리스트링 방식
+            - 라우터 방식
+                - queryString 방식 : URL?key=value&key=value
+                    - 가상경로 정의 : <Route path="/URL" element={<컴포넌트 />} />
+                    - 호출 : <Link to="/URL?key=value&key=value> </Link>
+                    - 해당 컴포넌트
+                        - import {useSearchParams} from 'react-router-dom';
+                        - const [searchParams] = useSearchParams();
+                        - const 변수명 = searchParams.get("key");
+
+                - path 방식 : URL/value/value
+                    - 가상경로 정의: <Route path="/product/:key1/:key2" element={<컴포넌트 />} />
+                    - 호출 : <Link to="/product/value1/value2">제품 상세페이지</Link>
+                    - 해당 컴포넌트
+                            - import {useParams} from 'react-router-dom';
+                            - const {key1, key2} = useParams();
+
+        05-07. 가상URL에 정의하지 않은 URL을 특정 컴포넌트로 라우팅 (주로 404페이지)
+            - <Route path="*" element={<Page404 />} />
+        
+        05-08. URL 호출 방법
+            - [1]
+                - HTTP에서는 <a href="이동할URL"> </a>              (MPA)   차이점 : 새로고침 적용
+                - react jsx에서는 <Link to="이동할URL"> </Link>     (SPA)   차이점 : 컴포넌트 바꿔치기
+
+            - [2]
+                - JS에서는 location.href="이동할URL";               (MPA)   차이점 : 새로고침 적용
+                - react jsx에서는 navigate("이동할URL");            (SPA)   차이점 : 컴포넌트 바꿔치기
+                    - import {useNavigate} from 'react-router-dom';
+                    - const navigate = useNavigate();
+                    - navigate("이동할경로");
