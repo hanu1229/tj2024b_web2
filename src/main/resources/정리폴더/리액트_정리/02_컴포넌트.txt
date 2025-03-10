@@ -34,7 +34,7 @@
 
         03-6. CSS 사용법
             ├─ import '경로/파일명.css'
-            ├─ class 속성명 대신 classNAme속성명 사용
+            ├─ class 속성명 대신 className속성명 사용
             └─ 인라인형식의 css는 카멜표기법
         
     04. JSX를 생성하는 방법

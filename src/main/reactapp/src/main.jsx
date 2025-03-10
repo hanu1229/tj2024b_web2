@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-// import App from './App.jsx'
+import App from './App.jsx'
 
 // react 18
 /*
@@ -62,5 +62,17 @@ const root = createRoot(document.querySelector("#root"))
 // day04 : 5_라우터 라우터 사용법
 // 맨 위에 존재하는 import App 샘플 코드를 주석 처리
 // 맨 위에 존재하는 import ./index.css를 주석 처리
-import App from './example/5_라우터/Example1.jsx';
-root.render(<App />);
+// import App from './example/5_라우터/Example1.jsx';
+// root.render(<App />);
+
+// day05 : 6_AXIOS axios 사용법 (application/json)
+// import Example1 from './example/6_AXIOS/Example1';
+// root.render(<Example1 />);
+
+// day05 : 6_AXIOS axios 사용법 (multipart/form-data)
+// import Example2 from './example/6_AXIOS/Example2.jsx';
+// root.render(<Example2 />);
+
+// day05 : 6_AXIOS Task.jsx
+import Task from './example/6_AXIOS/Task.jsx';
+root.render(<Task />)

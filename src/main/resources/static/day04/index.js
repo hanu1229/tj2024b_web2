@@ -113,7 +113,7 @@ let onUpdate = async (sno) => {
     let math = prompt("새로운 수학 점수");
     let obj = {sno, name, kor, math};
     let response = await axios.put(`/day04/student`, obj);
-    if(response.data == true) { alert("수정 성공");  (); }
+    if(response.data == true) { alert("수정 성공"); }
     else { alert("수정 실패"); }
 }
 
