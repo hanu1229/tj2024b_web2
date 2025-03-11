@@ -26,13 +26,28 @@
 -- ----------------------- day05 -------------------------------------
 
 -- ----------------------- day07 -------------------------------------
-drop database if exists task_db;
-create database task_db;
-use task_db;
+--drop database if exists task_db;
+--create database task_db;
+--use task_db;
+--
+--create table task (
+--	number int unsigned auto_increment,
+--    name varchar(30) not null,
+--    phone varchar(13) not null,
+--    constraint primary key(number)
+--);
+-- ----------------------- day07 -------------------------------------
 
-create table task (
-	number int unsigned auto_increment,
-    name varchar(30) not null,
-    phone varchar(13) not null,
-    constraint primary key(number)
+-- ----------------------- day08 -------------------------------------
+drop database if exists springweb;
+create database springweb;
+use springweb;
+
+create table productsample(
+	id int auto_increment ,
+    name varchar(20) ,
+    price int ,
+    comment longtext ,
+    constraint primary key ( id )
 );
+-- ----------------------- day07 -------------------------------------

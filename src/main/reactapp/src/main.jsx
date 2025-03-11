@@ -1,7 +1,7 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+// import './index.css';
+// import App from './App.jsx';
 
 // react 18
 /*
@@ -74,5 +74,10 @@ const root = createRoot(document.querySelector("#root"))
 // root.render(<Example2 />);
 
 // day05 : 6_AXIOS Task.jsx
-import Task from './example/6_AXIOS/Task.jsx';
-root.render(<Task />)
+// import Task from './example/6_AXIOS/Task.jsx';
+// root.render(<Task />)
+
+// day06 : 7_AXIOS2 라우터 사용법
+// import './App.css';
+import App from './example/7_AXIOS2/App';
+root.render(<App />);
