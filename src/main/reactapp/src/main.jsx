@@ -79,5 +79,15 @@ const root = createRoot(document.querySelector("#root"))
 
 // day06 : 7_AXIOS2 라우터 사용법
 // import './App.css';
-import App from './example/7_AXIOS2/App';
-root.render(<App />);
+// import App from './example/7_AXIOS2/App';
+// root.render(<App />);
+
+// day07(2025-03-13) : 8_MUI Material UI 사용법
+// import "./App.css";
+// import Example1 from './example/8_MUI/Example1';
+// root.render(<Example1 />);
+
+// day07(2025-03-13) : 8_MUI Joy UI 사용법
+import "./App.css";
+import Example2 from './example/8_MUI/Example2';
+root.render(<Example2 />);
