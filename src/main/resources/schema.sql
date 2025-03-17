@@ -1,4 +1,7 @@
--- ---------------------- day05 ---------------------------------- --
+drop database if exists springweb;
+create database springweb;
+use springweb;
+-- ----------------------- day05 ------------------------------------- --
 -- 학생 테이블
 --DROP TABLE if EXISTS student_score;
 --DROP TABLE if EXISTS student;
@@ -21,11 +24,11 @@
 --    CONSTRAINT  FOREIGN KEY (sno) REFERENCES student(sno)  -- 외래키 제약 조건 추가
 --);
 
--- ---------------------- ------ ---------------------------------- --
+-- ---------------------- ------ ------------------------------------- --
 
--- ----------------------- day05 -------------------------------------
+-- ----------------------- day05 ------------------------------------- --
 
--- ----------------------- day07 -------------------------------------
+-- ----------------------- day07 ------------------------------------- --
 --drop database if exists task_db;
 --create database task_db;
 --use task_db;
@@ -36,9 +39,9 @@
 --    phone varchar(13) not null,
 --    constraint primary key(number)
 --);
--- ----------------------- day07 -------------------------------------
+-- ----------------------- day07 ------------------------------------- --
 
--- ----------------------- day08 -------------------------------------
+-- ----------------------- day08 ------------------------------------- --
 drop database if exists springweb;
 create database springweb;
 use springweb;
@@ -50,4 +53,23 @@ create table productsample(
     comment longtext ,
     constraint primary key ( id )
 );
--- ----------------------- day07 -------------------------------------
+-- ----------------------- day08 ------------------------------------- --
+
+-- ------------------------------- web ------------------------------- --
+
+DROP TABLE if EXISTS member;
+CREATE TABLE member (
+    -- 회원 번호 (기본키)
+    mno   INT UNSIGNED AUTO_INCREMENT,
+    -- 회원 아이디
+    mid   VARCHAR(50) NOT NULL UNIQUE,
+    -- 비밀번호
+    mpwd  VARCHAR(255) NOT NULL,
+    -- 회원 이름
+    mname VARCHAR(100) NOT NULL,
+    -- 프로필 이미지 URL
+    mimg  VARCHAR(255) DEFAULT NULL,
+    CONSTRAINT PRIMARY KEY(mno)
+);
+
+-- ------------------------------- web ------------------------------- --
