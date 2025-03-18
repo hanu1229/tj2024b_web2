@@ -1,3 +1,4 @@
+// 예외처리 해주는 모드 // 랜더링이 2번씩 됨
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 // import './index.css';
@@ -88,6 +89,11 @@ const root = createRoot(document.querySelector("#root"))
 // root.render(<Example1 />);
 
 // day07(2025-03-13) : 8_MUI Joy UI 사용법
+// import "./App.css";
+// import Example2 from './example/8_MUI/Example2';
+// root.render(<Example2 />);
+
+// day08(2025-03-18) : 
 import "./App.css";
-import Example2 from './example/8_MUI/Example2';
-root.render(<Example2 />);
+import App from './components/App';
+root.render(<App />);

@@ -3,6 +3,7 @@ package web.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +34,8 @@ public class MemberController {
     // Content-Type : application/json
     // body : {"mid", "mpwd" , "mname" }
     @PostMapping("/signup")
-    public boolean signUp(@RequestBody() MemberDto memberDto) {
+    // public boolean signUp(@RequestBody() MemberDto memberDto)
+    public boolean signUp(MemberDto memberDto) {
         System.out.println("MemberController.signUp start");
         System.out.println("memberDto = " + memberDto);
         boolean result = memberService.signUp(memberDto);

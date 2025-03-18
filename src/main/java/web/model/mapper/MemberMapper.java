@@ -10,7 +10,7 @@ import web.model.dto.MemberDto;
 public interface MemberMapper {
 
     /** [1] 회원가입 <br/> --> 입력받은 자료를 등록 */
-    @Insert("insert into member(mid, mpwd, mname) values (#{mid}, #{mpwd}, #{mname})")
+    @Insert("insert into member(mid, mpwd, mname, mimg) values (#{mid}, #{mpwd}, #{mname}, #{mimg})")
     boolean signUp(MemberDto memberDto);
 
     /** [2] 로그인 <br/> --> 입력받은 자료를 확인/검증 */
