@@ -88,6 +88,7 @@ public class MemberController {
         if(session == null) { return null; }
         // 로그인 성공시 저장한 loginDto와 로그인정보를 꺼낸다.
         Object object = session.getAttribute("loginDto");
+        System.out.println("object = " + object);
         // 세션에 저장된 자료들은 모두 Object타입이므로 타입 변환
         MemberDto memberDto = (MemberDto)object;
         System.out.println("memberDto = " + memberDto);
