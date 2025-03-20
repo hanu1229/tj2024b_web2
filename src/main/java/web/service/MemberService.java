@@ -1,6 +1,7 @@
 package web.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import web.model.dto.MemberDto;
 import web.model.mapper.MemberMapper;
@@ -29,23 +30,47 @@ public class MemberService {
                 // (3) 업로드된 파일명을 MemberDto에 저장
                 memberDto.setMimg(fileName);
             }
+            // (4) 비크립트 라이브러리를 이용한 비밀번호 암호화
+            // (4-1) 비크립트 객체 생성
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            // (4-2) 암호화할 자료를 .encode(암호화할 자료)의 인수로 대입
+            String hashedPassword = passwordEncoder.encode(memberDto.getMpwd());
+            System.out.println("hashedPassword = " + hashedPassword);
+            // (4-3) 암호화된 값을 dto에 넣어서 DB 처리
+            memberDto.setMpwd(hashedPassword);
+
+            boolean result = memberMapper.signUp(memberDto);
+            System.out.println("result = " + result);
+            System.out.println("MemberService.signUp end");
+            return result;
         } catch(Exception e) {
             // 업로드와 회원가입DB 처리중 예외 발생 시 false 반환
             return false;
         }
-        boolean result = memberMapper.signUp(memberDto);
-        System.out.println("result = " + result);
-        System.out.println("MemberService.signUp end");
-        return result;
     }
 
     /** [2] 로그인 */
     public MemberDto login(MemberDto memberDto) {
         System.out.println("MemberService.login start");
         System.out.println("memberDto = " + memberDto);
-        MemberDto result = memberMapper.login(memberDto);
-        System.out.println("result = " + result);
-        System.out.println("MemberService.login end");
-        return result;
+        // MemberDto result = memberMapper.login(memberDto);
+        // System.out.println("result = " + result);
+        // System.out.println("MemberService.login end");
+        // return result;
+        // (1) 암호화된 진짜 비밀번호는 DB에 존재 로그인에 사용된 비밀번호는 암호화
+        // (2) 로그인에서 입력받은 아이디의 암호화된 비밀번호 가져오기
+        String password = memberMapper.findPassword(memberDto.getMid());
+        // 아이디 조회 결과가 없으면 없는 아이디
+        if(password == null) { return null; }
+        // (3) 로그인에서 입력받은 비밀번호와 암호화된 비밀번호 검증
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        // 입력받은 비밀번호와 데이터베이스에 있는 비밀번호를 검증하는 함수
+        // passwordEncoder.matches(비교할 자료, 암호화된 자료);
+        boolean result = passwordEncoder.matches(memberDto.getMpwd(), password);
+        // 비밀번호 검증 실패 시 false 성공 시 true
+        if(!result) { return null; }
+        // 로그인에서 입력한 아이디와 비밀번호가 모드 일치하면 회원정보 가져오기
+        MemberDto result2 = memberMapper.login(memberDto);
+        return result2;
     }
 }

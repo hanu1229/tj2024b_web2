@@ -79,3 +79,8 @@
             - 전역 상태(변수)를 저장할 store 만들기
             - Slice에서 전역 상태와 리듀서 만들기1
             - 전역상태(변수)를 사용할 컴포넌트들을 <Provider store = {}> </Provider>로 전체를 감싼다
+
+    07. 리덕스 상태도 새로고침(F5)를 하면 사라짐
+         07-1. 해결방안 : 리덕스 퍼시스턴스를 사용하여 localStorage에 상태(변수)를 유지한다.
+                - 설치 : npm install redux-persist
+                - store.jsx에서 퍼시스턴스를 설정, localStorage 적용하기
