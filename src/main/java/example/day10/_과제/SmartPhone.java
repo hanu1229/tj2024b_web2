@@ -1,4 +1,4 @@
-package example.day10.과제;
+package example.day10._과제;
 
 
 import java.util.Scanner;
@@ -11,8 +11,8 @@ public class SmartPhone {
         Thread musicThread = null;
         Thread webSurfingThread = null;
         System.out.println("1. 뮤직 ON/OFF | 2. 웹서핑 ON/OFF | 0. 종료");
+        System.out.print(">> ");
         while(true) {
-            System.out.print(">> ");
             int choose = scan.nextInt();
             if(choose == 1) {
                 if(music == null || !music.state) {
@@ -23,8 +23,7 @@ public class SmartPhone {
                     musicThread.start();
                 } else {
                     music.state = false;
-                    System.out.println("음악 종료!");
-                    musicThread.interrupt();
+                    // musicThread.interrupt();
                 }
             } else if(choose == 2) {
                 if(webSurfing == null || !webSurfing.state) {
@@ -35,17 +34,16 @@ public class SmartPhone {
                     webSurfingThread.start();
                 } else {
                     webSurfing.state = false;
-                    System.out.println("웹서핑 종료!");
-                    webSurfingThread.interrupt();
+                    // webSurfingThread.interrupt();
                 }
             } else if(choose == 0) {
                 if(music != null) {
                     music.state = false;
-                    musicThread.interrupt();
+                    // musicThread.interrupt();
                 }
                 if(webSurfing != null) {
                     webSurfing.state = false;
-                    webSurfingThread.interrupt();
+                    // webSurfingThread.interrupt();
                 }
                 System.out.println("스마트폰 종료!");
                 return;

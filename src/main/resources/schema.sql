@@ -73,3 +73,17 @@ CREATE TABLE member (
 );
 
 -- ------------------------------- web ------------------------------- --
+
+-- ------------------------------- day11._과제 ------------------------------- --
+
+DROP TABLE IF EXISTS day11products;
+CREATE TABLE day11products (
+    -- 상품ID (자동 증가)
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    -- 상품명
+    product_name VARCHAR(255) NOT NULL,
+    -- 재고 수량
+    stock_quantity INT NOT NULL
+);
+
+-- ------------------------------- day11._과제 ------------------------------- --

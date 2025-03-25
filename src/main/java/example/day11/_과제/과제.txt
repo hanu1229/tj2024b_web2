@@ -1,0 +1,29 @@
+[ 스케줄링 문제 ] 자동 재고 관리 시스템
+    조건
+        01. 매 30초마다 모든 제품의 재고가 3개씩 감소한다.
+        02. 매 1분마다 모든 제품의 정보를조회하여 console에 출력한다
+        03. 매 5분마다 재고가 10개 이하인 상품의 재고를 20개 추가한다.
+        --> AppStart, TaskService, TaskMapper
+
+    샘플 DB
+        -- schema.sql
+        DROP TABLE IF EXISTS day11products;
+        CREATE TABLE day11products (
+            -- 상품ID (자동 증가)
+            product_id INT PRIMARY KEY AUTO_INCTEMENT,
+            -- 상품명
+            product_name VARCHAR(255) NOT NULL,
+            -- 재고 수량
+            stock_quantity INT NOT NULL
+        );
+        -- data.sql
+        INSERT INTO day11products(product_name, stock_quantity) VALUES
+        ('무선 이어폰', 25),
+        ('스마트워치', 12),
+        ('게이밍 키보드', 30),
+        ('게이밍 마우스', 8),
+        ('휴대용 충전기', 15);
+
+[ 실행 예시 ]
+
+[ 제출 ] 카톡방 git 링크 제출
