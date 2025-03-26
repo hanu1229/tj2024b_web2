@@ -1,0 +1,32 @@
+[ JAVA ]
+    01. 기본 for()문
+        └─ for(초기값 ; 조건문 ; 증감식) { }
+    02. 향상된 for()문
+        └─ for(타입 반복변수 : 리스트/배열) { }
+    03. forEach()문
+        └─ 리스트명.forEach((반복변수) -> { });
+    04. stream().map()문 --> map에서 구현코드가 한줄이면 return 생략 가능
+        └─ 리스트명.stream().map((반복변수) -> { }).collect(Collectors.to컬렉션명());
+    05. stream().filter()문
+        └─ 리스트명.stream().filter((반복변수) -> { }).collect(Collectors.to컬렉션명());
+
+
+
+
+
+
+
+
+
+[ JavaScript ]
+    01. 기본 for()문
+        └─ for(초기값 ; 조건문 ; 증감식) { }
+    02. 향상된 for()문
+        ├─ for(타입 반복변수 in 리스트/배열) { }
+        └─ for(타입 반복변수 of 리스트/배열) { }
+    03. forEach()문
+        └─ 리스트명.forEach((반복변수) => { });
+    04. map()문 --> map에서 구현코드가 한줄이면 return 생략 가능(map형식은 리액트 jsx에서 많이 사용)
+        └─ 리스트명.map((반복변수) => { });
+    05. filter()문
+        └─ 리스트명.filter((반복변수) => { });
