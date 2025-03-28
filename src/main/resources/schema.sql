@@ -87,3 +87,12 @@ CREATE TABLE day11products (
 );
 
 -- ------------------------------- day11._과제 ------------------------------- --
+
+-- ------------------------------- day13 ------------------------------- --
+DROP TABLE if EXISTS day13users;
+CREATE TABLE day13users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    money INT UNSIGNED DEFAULT 0
+);
+-- ------------------------------- day13 ------------------------------- --
